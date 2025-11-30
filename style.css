@@ -1,0 +1,383 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #fff;
+  background: #050816;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background video + overlay */
+.bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(56, 30, 73, 0.45), rgba(13, 19, 94, 0.45)),
+              rgba(5, 8, 22, 0.65);
+  mix-blend-mode: normal;
+  z-index: -1;
+}
+
+
+/* Header / Nav */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(to bottom, rgba(5, 8, 22, 0.9), transparent);
+  z-index: 10;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 0 0 10px white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: antiquewhite;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #5615aa, #a01083);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 6rem 10% 4rem;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #8193ee;
+  margin-bottom: 0.5rem;
+}
+
+.hero h1,
+.bio-main h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.big_head{
+  /* color: #3a0fe6;
+  text-shadow: 0 0 10px #0808e6; */
+  color: #d10b39;
+  text-shadow: 0 0 10px hotpink;
+}
+.tagline {
+  font-size: 0.95rem;
+  color: #d10b39;
+  text-shadow: 0 0 10px hotpink;
+  max-width: 32rem;
+  margin-bottom: 1.5rem;
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: radial-gradient(circle at 0 0, #ec0ede, transparent 70%),
+              radial-gradient(circle at 100% 100%, #a855f7, transparent 70%);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: #0b1020;
+  font-weight: 600;
+}
+
+/* Sections */
+.section-grid {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 4rem 10%;
+}
+
+.section-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #9ca3af;
+  opacity: 0.8;
+}
+
+.section-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.section-desc {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  margin-bottom: 1.4rem;
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  border-left: 1px solid rgba(148, 163, 184, 0.5);
+  padding-left: 1.5rem;
+}
+
+.timeline li {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -1.1rem;
+  top: 0.3rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f97316, #a855f7);
+}
+
+/* Skills grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.2rem;
+}
+
+.skill-card,
+.project-card,
+.bio-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+}
+
+.skill-card h3,
+.project-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.skill-card p,
+.project-card p {
+  font-size: 0.86rem;
+  color: #e5e7eb;
+}
+
+/* Contact list */
+.contact-list {
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.4rem;
+}
+
+/* Bio-data page */
+.bio-main {
+  min-height: 100vh;
+  padding: 7rem 10% 4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.bio-card {
+  max-width: 800px;
+}
+
+.biodata-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.8rem 0;
+  font-size: 0.9rem;
+}
+
+.biodata-table th,
+.biodata-table td {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.biodata-table th {
+  width: 32%;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+.biodata-table tr:last-child td,
+.biodata-table tr:last-child th {
+  border-bottom: none;
+}
+
+.declaration {
+  font-size: 0.86rem;
+  color: #d1d5db;
+  margin-top: 1rem;
+}
+
+.sign-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.86rem;
+  margin-top: 1rem;
+}
+
+.signature {
+  margin-left: auto;
+}
+
+/* Footer */
+.site-footer {
+  padding: 2.5rem 10% 1.5rem;
+  border-top: 1px solid rgba(31, 41, 55, 0.85);
+  background: linear-gradient(to top, rgba(5, 8, 22, 0.98), transparent);
+}
+
+.site-footer,
+.footer-left p,
+.footer-right a {
+  font-size: 0.82rem;
+}
+
+.footer-left h3 {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.site-footer a {
+  color: #9ca3af;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.site-footer a:hover {
+  color: #e5e7eb;
+}
+
+.footer-right {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.footer-right h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.4rem;
+  color: #9ca3af;
+}
+
+.footer-copy {
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header {
+    padding-inline: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.75rem;
+  }
+
+  .hero,
+  .section-grid,
+  .bio-main,
+  .site-footer {
+    padding-inline: 1.5rem;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-label {
+    order: -1;
+  }
+
+  .footer-right {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+.intern-list {
+  margin: 0.6rem 0 0.8rem;
+  padding-left: 1.2rem;
+  font-size: 0.86rem;
+  color: #e5e7eb;
+}
+
+.intern-list li {
+  margin-bottom: 0.4rem;
+}
